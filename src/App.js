@@ -1,26 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import LocationDetails from './components/location-details';
+import PropTypes from 'prop-types';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hello World!
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = props => 
+  <LocationDetails 
+    city={props.location.city} country={props.location.country} 
+  />
+
+App.propTypes = {
+  location: PropTypes.shape({
+    city: PropTypes.string,
+    country: PropTypes.string,
+  }).isRequired,
+};
 
 export default App;
