@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import LocationDetails from './components/location-details';
 import ForecastSummaries from './components/forecast-summaries'; 
+import './styles/app.css';
 
 const App = props => (
   <div className="forecast">

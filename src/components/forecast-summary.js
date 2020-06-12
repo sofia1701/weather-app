@@ -9,7 +9,7 @@ const ForecastSummary = props => {
         {props.date}
       </div>
       <div className="temperature">
-        {props.temperature}
+        {props.temperature}&deg;c
       </div>
       <div className="description">
         {props.description}
