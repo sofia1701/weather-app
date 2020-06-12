@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 const ForecastSummary = props => {
   return (
-    <>
+  
+    <div>
       <div className="date">
         {props.date}
       </div>
@@ -16,13 +17,14 @@ const ForecastSummary = props => {
       <div className="icon">
         {props.icon}
       </div>
-    </>
-  );
+    </div>
+    
+  )
 };
 
 ForecastSummary.propTypes = {
-  date: PropTypes.string.isRequired,
-  temperature: PropTypes.string.isRequired,
+  date: PropTypes.number.isRequired,
+  temperature: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
   icon:PropTypes.string.isRequired,
 };
