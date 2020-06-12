@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/forecast-summary.css'
 
 const ForecastSummary = props => {
   return (
   
-    <div>
-      <div className="date">
+    <div className="forecast-summary">
+      <div className="date" data-testid="date-id">
         {props.date}
       </div>
-      <div className="temperature">
+      <div className="temperature" data-testid="temperature-id">
         {props.temperature}&deg;c
       </div>
-      <div className="description">
+      <div className="description" data-testid="description-id">
         {props.description}
       </div>
-      <div className="icon">
+      <div className="icon" data-testid="icon-id">
         {props.icon}
       </div>
     </div>
@@ -23,10 +24,12 @@ const ForecastSummary = props => {
 };
 
 ForecastSummary.propTypes = {
-  date: PropTypes.number.isRequired,
-  temperature: PropTypes.number.isRequired,
-  description: PropTypes.string.isRequired,
-  icon:PropTypes.string.isRequired,
+  forecast: PropTypes.shape({
+    date: PropTypes.string.isRequired,
+    temperature: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    icon: PropTypes.object.isRequired,
+  }),
 };
 
 export default ForecastSummary;
