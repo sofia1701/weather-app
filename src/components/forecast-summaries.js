@@ -10,8 +10,8 @@ const ForecastSummaries = props => (
         <ForecastSummary
           key={forecast.date}
           date={forecast.date}
-          description={forecast.description}
           icon={forecast.icon}
+          description={forecast.description}
           temperature={forecast.temperature.max}
         />
       ))

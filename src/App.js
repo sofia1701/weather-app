@@ -7,7 +7,8 @@ import './styles/app.css';
 const App = props => (
   <div className="forecast">
     <LocationDetails 
-      city={props.location.city} country={props.location.country} 
+      city={props.location.city} 
+      country={props.location.country} 
     />
     <ForecastSummaries 
       forecasts={props.forecasts}
