@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import LocationDetails from './components/location-details';
 import ForecastSummaries from './components/forecast-summaries'; 
+import ForecastDetails from './components/forecast-details';
 import './styles/app.css';
 
 const App = props => (
@@ -13,6 +14,9 @@ const App = props => (
     <ForecastSummaries 
       forecasts={props.forecasts}
     />
+    <ForecastDetails
+      forecast={props.forecasts[0]}
+    />
   </div>
 )
 
@@ -22,6 +26,7 @@ App.propTypes = {
     country: PropTypes.string,
   }).isRequired,
   forecasts: PropTypes.array.isRequired,
+  forecast:PropTypes.object,
 };
 
 export default App;

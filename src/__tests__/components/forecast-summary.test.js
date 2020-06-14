@@ -10,7 +10,7 @@ describe("ForecastSummary", () => {
       <ForecastSummary
         date={1525046400000}
         icon="800"
-        temperature="mockTemperature"
+        temperature={11}
         description="mockDescription"
       />
     );
@@ -21,7 +21,7 @@ describe("ForecastSummary", () => {
       <ForecastSummary
         date={1525046400000}
         icon= "200"
-        temperature="mockTemperature"
+        temperature={13}
         description="mockDescription"
       />
     );

@@ -5,7 +5,7 @@ import ForecastSummaries from '../../components/forecast-summaries';
 afterEach(cleanup);
 
 describe("ForecastSummaries", () => {
-  const forecasts = [
+  const mockForecasts = [
     {
       date: 123,
       description: 'date1',
@@ -25,13 +25,13 @@ describe("ForecastSummaries", () => {
   ];
 
   it("renders correctly to match ForecastSummaries snapshot", () => {
-    const { asFragment } = render(<ForecastSummaries forecasts={forecasts} />);
+    const { asFragment } = render(<ForecastSummaries forecasts={mockForecasts} />);
 
     expect(asFragment).toMatchSnapshot();
   });
   it("renders the correct amount of ForecastSummary component props", () => {
     const { getAllByTestId } = render(
-      <ForecastSummaries forecasts={forecasts}/>
+      <ForecastSummaries forecasts={mockForecasts}/>
     )
     
     expect(getAllByTestId("date-id")).toHaveLength(2);
