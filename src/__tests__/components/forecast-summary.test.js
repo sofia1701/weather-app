@@ -9,7 +9,7 @@ describe("ForecastSummary", () => {
     const { asFragment } = render(
       <ForecastSummary
         date={1525046400000}
-        icon="200"
+        icon="800"
         temperature="mockTemperature"
         description="mockDescription"
       />
