@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, cleanup } from "@testing-library/react";
-import ForecastDetails from '../../src/components/forecast-details';
+import ForecastDetails from '../../components/forecast-details';
 
 afterEach(cleanup);
 

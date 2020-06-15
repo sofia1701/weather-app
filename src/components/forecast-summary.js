@@ -20,6 +20,7 @@ const ForecastSummary = props => {
       <div className="description" data-testid="description-id">
         {props.description}
       </div>
+      <button onClick={() => props.onSelect(props.date)}>More details</button>
     </div>
   
   )
