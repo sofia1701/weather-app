@@ -12,7 +12,7 @@ const ForecastSummary = props => {
         {moment(props.date).format('dddd Do MMM')}
       </div>
       <div className="icon" data-testid="icon-id">
-        <WeatherIcon name="owm" iconId={props.icon}></WeatherIcon>
+        <WeatherIcon name="owm" iconId={props.icon}/>
       </div>
       <div className="temperature" data-testid="temperature-id">
         {props.temperature}&deg;c
@@ -32,6 +32,7 @@ ForecastSummary.propTypes = {
     icon: PropTypes.object.isRequired,
     temperature: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
+    onSelect: PropTypes.func,
   }),
 };
 
