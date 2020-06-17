@@ -20,6 +20,8 @@ const App = () => {
 
   const [load, setLoad] = useState(false);
 
+  const { city, country } = location;
+
   const selectedForecast = forecasts.find(
     (forecast) => forecast.date === selectedDate
   );
@@ -61,7 +63,7 @@ const App = () => {
   if(load) {
     return (
       <div className="forecast">
-        <LocationDetails city={location.city} country={location.country} />
+        <LocationDetails city={city} country={country} />
         <SearchForm
           onSearch={findCity}
           searchText={searchText}
