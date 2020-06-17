@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../styles/search-form.css'
 
 const SearchForm = props => {
@@ -9,14 +10,27 @@ const SearchForm = props => {
   return (
     <div className='search-form'>
       <input 
+        className="input"
+        data-testid="input-id"
         type="text" 
         placeholder="Search for city.."
         onChange={handleInputChange}
         value={props.searchText}
       />
-      <button onClick={() => props.onSearch(props.searchText)}>Search</button>
+      <button 
+        className="button" 
+        data-testid="button-id"
+        onClick={() => props.onSearch(props.searchText)}
+      >
+        Search
+      </button>
     </div>
   )
+}
+
+SearchForm.propTypes = {
+  onChange: PropTypes.func,
+  onClick: PropTypes.func,
 }
 
 export default SearchForm;

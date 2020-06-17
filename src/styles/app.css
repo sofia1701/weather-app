@@ -1,3 +1,10 @@
+body {
+  background-image: url("background.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 .forecast {
   margin-right: 40px;
   margin-left: 40px;

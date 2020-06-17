@@ -14,9 +14,11 @@ const App = () => {
     country: "",
   });
 
-  const [selectedDate, setSelectedDate] = useState(0);
+  const [selectedDate, setSelectedDate] = useState("");
 
   const [searchText, setSearchText] = useState("");
+
+  const [load, setLoad] = useState(false);
 
   const selectedForecast = forecasts.find(
     (forecast) => forecast.date === selectedDate
@@ -32,7 +34,12 @@ const App = () => {
       .then((response) => {
         setForecasts(response.data.forecasts);
         setLocation(response.data.location);
-      });
+        setLoad(true);
+      })
+      .catch(err => {
+        alert("Server error.");
+        setLoad(true)
+    })
   }, []);
 
   const findCity = () => {
@@ -43,24 +50,38 @@ const App = () => {
       .then((response) => {
         setForecasts(response.data.forecasts);
         setLocation(response.data.location);
+        setLoad(true);
+      })
+      .catch(err => {
+        alert('The city could not be found.')
+        setLoad(true);
       });
   };
 
-  return (
-    <div className="forecast">
-      <LocationDetails city={location.city} country={location.country} />
-      <SearchForm
-        onSearch={findCity}
-        searchText={searchText}
-        setSearchText={setSearchText}
-      />
-      <ForecastSummaries
-        forecasts={forecasts}
-        onForecastSelect={handleForecastSelect}
-      />
-      {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
-    </div>
+  if(load) {
+    return (
+      <div className="forecast">
+        <LocationDetails city={location.city} country={location.country} />
+        <SearchForm
+          onSearch={findCity}
+          searchText={searchText}
+          setSearchText={setSearchText}
+        />
+        <ForecastSummaries
+          forecasts={forecasts}
+          onForecastSelect={handleForecastSelect}
+        />
+        {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
+      </div>
+    );
+  } else {
+    return (
+      <div>
+          Loading...
+      </div>
   );
+  }
+  
 };
 
 export default App;
