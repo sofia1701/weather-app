@@ -10,16 +10,18 @@ describe("SeachForm", () => {
   
     expect(asFragment).toMatchSnapshot();
   });
-  it('renders text input', () => {
-    const { getByTestId } = render(
-      <SearchForm />
-    )
-    expect(getByTestId("input-id")).toHaveClass("input");
+  it('renders a text input', () => {
+    const { getByTestId } = render(<SearchForm />)
+    const input = getByTestId("input-id")
+
+    expect(input).toHaveAttribute('type', 'text');
   })
-  it('renders a button', () => {
-    const { getByTestId } = render(
-      <SearchForm />
-    )
-    expect(getByTestId("button-id")).toHaveClass("button");
-  })
-})
+});
+
+it('renders a button', () => {
+  const { getByTestId } = render(<SearchForm />)
+  const button = getByTestId("button-id")
+
+  expect(button).toHaveClass("button");
+  expect(button).toHaveTextContent("Search");
+});
