@@ -16,12 +16,13 @@ describe("SeachForm", () => {
 
     expect(input).toHaveAttribute('type', 'text');
   })
+  it('renders a button', () => {
+    const { getByTestId } = render(<SearchForm />)
+    const button = getByTestId("button-id")
+  
+    expect(button).toHaveClass("button");
+    expect(button).toHaveTextContent("Search");
+  });
 });
 
-it('renders a button', () => {
-  const { getByTestId } = render(<SearchForm />)
-  const button = getByTestId("button-id")
 
-  expect(button).toHaveClass("button");
-  expect(button).toHaveTextContent("Search");
-});
