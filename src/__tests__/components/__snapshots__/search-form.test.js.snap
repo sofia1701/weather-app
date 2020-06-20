@@ -1,3 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SeachForm renders correctly 1`] = `[Function]`;
+exports[`SeachForm renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="search-form"
+  >
+    <input
+      class="input"
+      data-testid="input-id"
+      placeholder="Search for city.."
+      type="text"
+      value=""
+    />
+    <button
+      class="button"
+      data-testid="button-id"
+    >
+      Search
+    </button>
+  </div>
+</DocumentFragment>
+`;

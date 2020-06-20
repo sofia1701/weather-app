@@ -1,8 +1,6 @@
 import React from 'react';
-import { render, cleanup } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import ForecastDetails from '../../components/forecast-details';
-
-afterEach(cleanup);
 
 describe("ForecastDetails", () => {
   const mockForecast = {
@@ -19,7 +17,7 @@ describe("ForecastDetails", () => {
   
   it("renders correctly" , () => {
     const { asFragment } = render(<ForecastDetails forecast={mockForecast}/>)
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   })
   it('renders the correct amount of props', () => {
     const { getByText } = render(

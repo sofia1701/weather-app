@@ -1,14 +1,12 @@
 import React from 'react';
-import { render, cleanup } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import SearchForm from '../../components/search-form';
-
-afterEach(cleanup);
 
 describe("SeachForm", () => {
   it('renders correctly', () => {
     const { asFragment } = render(<SearchForm />);
   
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
   it('renders a text input', () => {
     const { getByTestId } = render(<SearchForm />)

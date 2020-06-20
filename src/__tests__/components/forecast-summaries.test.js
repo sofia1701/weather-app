@@ -1,8 +1,6 @@
 import React from 'react';
-import { render, cleanup } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import ForecastSummaries from '../../components/forecast-summaries';
-
-afterEach(cleanup);
 
 describe("ForecastSummaries", () => {
   const mockForecasts = [
@@ -27,7 +25,7 @@ describe("ForecastSummaries", () => {
   it("renders correctly to match ForecastSummaries snapshot", () => {
     const { asFragment } = render(<ForecastSummaries forecasts={mockForecasts} />);
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
   it("renders the correct amount of ForecastSummary component props", () => {
     const { getAllByTestId } = render(
