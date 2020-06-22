@@ -5,6 +5,20 @@ import ForecastSummaries from "./components/forecast-summaries";
 import ForecastDetails from "./components/forecast-details";
 import SearchForm from "./components/search-form";
 import "./styles/app.css";
+import Modal from "react-modal";
+
+Modal.setAppElement('#root')
+
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
 
 const App = () => {
   const [forecasts, setForecasts] = useState([]);
@@ -20,6 +34,16 @@ const App = () => {
 
   const [load, setLoad] = useState(false);
 
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   const { city, country } = location;
 
   const selectedForecast = forecasts.find(
@@ -28,6 +52,7 @@ const App = () => {
 
   const handleForecastSelect = (date) => {
     setSelectedDate(date);
+    setIsOpen(openModal)
   };
 
   useEffect(() => {
@@ -73,7 +98,15 @@ const App = () => {
           forecasts={forecasts}
           onForecastSelect={handleForecastSelect}
         />
+        <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
         {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
+      </Modal>
+        
       </div>
     );
   } else {
