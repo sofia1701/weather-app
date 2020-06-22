@@ -7,7 +7,7 @@ import SearchForm from "./components/search-form";
 import "./styles/app.css";
 import Modal from "react-modal";
 
-Modal.setAppElement('#root')
+Modal.setAppElement("#root");
 
 const customStyles = {
   content: {
@@ -52,7 +52,7 @@ const App = () => {
 
   const handleForecastSelect = (date) => {
     setSelectedDate(date);
-    setIsOpen(openModal)
+    setIsOpen(openModal);
   };
 
   useEffect(() => {
@@ -63,10 +63,10 @@ const App = () => {
         setLocation(response.data.location);
         setLoad(true);
       })
-      .catch(err => {
+      .catch((err) => {
         alert("Server error.");
-        setLoad(true)
-    })
+        setLoad(true);
+      });
   }, []);
 
   const findCity = () => {
@@ -79,13 +79,13 @@ const App = () => {
         setLocation(response.data.location);
         setLoad(true);
       })
-      .catch(err => {
-        alert('The city could not be found.')
+      .catch((err) => {
+        alert("The city could not be found.");
         setLoad(true);
       });
   };
 
-  if(load) {
+  if (load) {
     return (
       <div className="forecast">
         <LocationDetails city={city} country={country} />
@@ -99,24 +99,18 @@ const App = () => {
           onForecastSelect={handleForecastSelect}
         />
         <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
-      </Modal>
-        
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
+        </Modal>
       </div>
     );
   } else {
-    return (
-      <div>
-          Loading...
-      </div>
-  );
+    return <div>Loading...</div>;
   }
-  
 };
 
 export default App;

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import { render } from "@testing-library/react";
-import ForecastSummary from '../../components/forecast-summary';
+import ForecastSummary from "../../components/forecast-summary";
 
 describe("ForecastSummary", () => {
   it("renders correctly", () => {
@@ -13,12 +13,12 @@ describe("ForecastSummary", () => {
       />
     );
     expect(asFragment()).toMatchSnapshot();
-  })
+  });
   it("renders the correct props", () => {
     const { getByTestId } = render(
       <ForecastSummary
         date={1525046400000}
-        icon= "200"
+        icon="200"
         temperature={13}
         description="mockDescription"
       />
@@ -28,6 +28,5 @@ describe("ForecastSummary", () => {
     expect(getByTestId("icon-id")).toHaveClass("icon");
     expect(getByTestId("temperature-id")).toHaveClass("temperature");
     expect(getByTestId("description-id")).toHaveClass("description");
-  })
+  });
 });
-

@@ -20,7 +20,8 @@ const SearchForm = (props) => {
       <button
         className="button"
         data-testid="button-id"
-        onClick={() => props.onSearch(props.searchText)}>
+        onClick={() => props.onSearch(props.searchText)}
+      >
         Search
       </button>
     </div>
